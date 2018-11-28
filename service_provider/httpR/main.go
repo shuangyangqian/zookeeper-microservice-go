@@ -55,15 +55,16 @@ func main() {
 
 	// 注册服务
 	if err := client.Register(service); err != nil {
-		client.Close()
+		defer client.Close()
 		panic(err)
 	}
 	glog.Infof("registry service:%s-%s:%d to zk", service.Name, service.Host, service.Port)
-	client.Close()
+	defer client.Close()
 
 	u := gin.Default()
 	u.GET("/", service.IndexController)
 
+	glog.Infof("listen and serve %s:%d", IpAddress, service_provider.PORT)
 	u.Run(fmt.Sprintf("%s:%d",IpAddress, service_provider.PORT))
 }
 

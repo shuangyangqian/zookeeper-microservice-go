@@ -38,16 +38,16 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	glog.Infof("get %d nodes with service name %s", len(nodes), serviceName)
 	for _, node := range nodes {
 		fmt.Println(contentInPage(node.Host, node.Port))
 	}
-
 
 }
 
 func contentInPage(host string, port int) string {
 	client := http.Client{}
-	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("%s:%d",
+	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("http://%s:%d",
 		host, port), nil)
 	if err != nil {
 		glog.Error(err)
