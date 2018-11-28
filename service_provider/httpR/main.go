@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 	"github.com/golang/glog"
-	"zookeeper-go-demo/service_provider"
+	"zookeeper-microservice-go/service_provider"
 	"flag"
 	"strings"
 )
@@ -18,11 +18,11 @@ var zkHost string
 
 func main() {
 
-	flag.StringVar(&serviceName, "--name", "red",
+	flag.StringVar(&serviceName, "-name", "red",
 		"the service name registered to zk")
-	flag.IntVar(&servicePort, "--port", 8080,
+	flag.IntVar(&servicePort, "-port", 8080,
 		"the port service listened on")
-	flag.StringVar(&zkHost, "--zkHost", "127.0.0.1:2181;",
+	flag.StringVar(&zkHost, "-zkHost", "127.0.0.1:2181;",
 		"the zk host list to registered")
 
 	flag.Parse()
