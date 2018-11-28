@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 	"github.com/golang/glog"
-	"github.com/shuangyangqian/zookeeper-microservice-go/service_provider"
+	"zookeeper-go-demo/service_provider"
 	"flag"
 	"strings"
 )
@@ -18,7 +18,7 @@ var zkHost string
 
 func main() {
 
-	flag.StringVar(&serviceName, "--name", "color",
+	flag.StringVar(&serviceName, "--name", "red",
 		"the service name registered to zk")
 	flag.IntVar(&servicePort, "--port", 8080,
 		"the port service listened on")
@@ -27,10 +27,13 @@ func main() {
 
 	flag.Parse()
 	// 获取本机IP地址
-	IpAddress := getIp()
-	if IpAddress == "" {
+	IpAddress, err := getIp()
+	if err != nil {
 		glog.Error("cannot get ip address")
+		panic(err)
 	}
+
+	glog.Infof("get local ip is %s", IpAddress)
 
 	// 创建服务对象
 	service := &service_provider.ServiceNode{
@@ -49,12 +52,14 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	glog.Infof("get connection to zk:%s", zkHost)
 
 	// 注册服务
 	if err := client.Register(service); err != nil {
 		client.Close()
 		panic(err)
 	}
+	glog.Infof("registry service:%s-%s:%s to zk", service.Name, service.Host, service.Port)
 	client.Close()
 
 	u := gin.Default()
@@ -64,10 +69,11 @@ func main() {
 }
 
 func controller(ctx *gin.Context)  {
-	ctx.JSON(http.StatusOK, gin.H{"message": "Hi, this is a blue page"})
+	ctx.JSON(http.StatusOK, gin.H{"message":
+		fmt.Sprintf("Hi, this is a %s page", serviceName)})
 }
 
-func getIp() string {
+func getIp() (string, error) {
 	addrs, err := net.InterfaceAddrs()
 	if err != nil {
 		fmt.Println(err)
@@ -77,9 +83,10 @@ func getIp() string {
 		// 检查ip地址判断是否回环地址
 		if ipnet, ok := address.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
 			if ipnet.IP.To4() != nil {
-				return ipnet.IP.String()
+				return ipnet.IP.String(), nil
 			}
 		}
 	}
-	return ""
+	err = new(error)
+	return "", err
 }
