@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40c27947-7eb1-4084-a884-d9246913ad2c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/service_provider/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_provider/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_provider/httpR/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_provider/httpR/main.go" afterDir="false" />
-    </list>
+    <list default="true" id="40c27947-7eb1-4084-a884-d9246913ad2c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,10 +21,10 @@
         </entry>
       </file>
       <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/service_provider/httpR/main.go">
+        <entry file="file://$PROJECT_DIR$/../zookeeper-microservice-go/service_provider/httpR/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="92" column="5" lean-forward="true" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+            <state relative-caret-position="1164">
+              <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
               <folding>
                 <element signature="e#14#201#0" expanded="true" />
               </folding>
@@ -45,15 +42,18 @@
         </entry>
       </file>
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/../zookeeper-microservice-go/.gitignore">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="common.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service_provider/common.go">
+        <entry file="file://$PROJECT_DIR$/../zookeeper-microservice-go/service_provider/common.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="126" column="18" lean-forward="true" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
+            <state relative-caret-position="418">
+              <caret line="19" column="37" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="37" />
+              <folding>
+                <element signature="e#26#98#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -106,6 +106,8 @@
         <option value="$PROJECT_DIR$/service_provider/blue/main.go" />
         <option value="$PROJECT_DIR$/service_provider/common.go" />
         <option value="$PROJECT_DIR$/service_provider/httpR/main.go" />
+        <option value="$PROJECT_DIR$/../zookeeper-microservice-go/service_provider/common.go" />
+        <option value="$PROJECT_DIR$/../zookeeper-microservice-go/service_provider/httpR/main.go" />
       </list>
     </option>
   </component>
@@ -130,17 +132,17 @@
         <subPane>
           <expand>
             <path>
-              <item name="zookeeper-go-demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zookeeper-go-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="zookeeper-microservice-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zookeeper-microservice-go" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="zookeeper-go-demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zookeeper-go-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="zookeeper-microservice-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zookeeper-microservice-go" type="462c0819:PsiDirectoryNode" />
               <item name="service_provider" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="zookeeper-go-demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zookeeper-go-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="zookeeper-microservice-go" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zookeeper-microservice-go" type="462c0819:PsiDirectoryNode" />
               <item name="service_provider" type="462c0819:PsiDirectoryNode" />
               <item name="httpR" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -228,7 +230,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -315,7 +317,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/../zookeeper-microservice-go/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://E:/Go/src/builtin/builtin.go">
@@ -325,17 +327,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service_provider/common.go">
+    <entry file="file://$PROJECT_DIR$/../zookeeper-microservice-go/service_provider/common.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="126" column="18" lean-forward="true" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
+        <state relative-caret-position="418">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="37" />
+          <folding>
+            <element signature="e#26#98#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service_provider/httpR/main.go">
+    <entry file="file://$PROJECT_DIR$/../zookeeper-microservice-go/service_provider/httpR/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="92" column="5" lean-forward="true" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+        <state relative-caret-position="1164">
+          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
           <folding>
             <element signature="e#14#201#0" expanded="true" />
           </folding>

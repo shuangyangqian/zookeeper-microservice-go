@@ -5,6 +5,8 @@ import (
 	"time"
 	"encoding/json"
 	"fmt"
+	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 const PORT = 8080
@@ -13,6 +15,11 @@ type ServiceNode struct {
 	Name string `json:"name"` // 服务名称，这里是user
 	Host string `json:"host"`
 	Port int    `json:"port"`
+}
+
+func (s *ServiceNode) IndexController(ctx *gin.Context)  {
+	ctx.JSON(http.StatusOK, gin.H{"message":
+	fmt.Sprintf("Hi, this is a %s page from server %s:%d", s.Name, s.Host, s.Port)})
 }
 
 type SdClient struct {

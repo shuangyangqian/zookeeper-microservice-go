@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
 	"net"
 	"fmt"
 	"os"
@@ -18,11 +17,11 @@ var zkHost string
 
 func main() {
 
-	flag.StringVar(&serviceName, "-name", "red",
+	flag.StringVar(&serviceName, "name", "red",
 		"the service name registered to zk")
-	flag.IntVar(&servicePort, "-port", 8080,
+	flag.IntVar(&servicePort, "port", 8080,
 		"the port service listened on")
-	flag.StringVar(&zkHost, "-zkHost", "127.0.0.1:2181;",
+	flag.StringVar(&zkHost, "zkHost", "127.0.0.1:2181;",
 		"the zk host list to registered")
 
 	flag.Parse()
@@ -59,18 +58,13 @@ func main() {
 		client.Close()
 		panic(err)
 	}
-	glog.Infof("registry service:%s-%s:%s to zk", service.Name, service.Host, service.Port)
+	glog.Infof("registry service:%s-%s:%d to zk", service.Name, service.Host, service.Port)
 	client.Close()
 
 	u := gin.Default()
-	u.GET("/", controller)
+	u.GET("/", service.IndexController)
 
 	u.Run(fmt.Sprintf("%s:%d",IpAddress, service_provider.PORT))
-}
-
-func controller(ctx *gin.Context)  {
-	ctx.JSON(http.StatusOK, gin.H{"message":
-		fmt.Sprintf("Hi, this is a %s page", serviceName)})
 }
 
 func getIp() (string, error) {
