@@ -4,6 +4,7 @@ import (
 	"github.com/samuel/go-zookeeper/zk"
 	"time"
 	"encoding/json"
+	"fmt"
 )
 
 const PORT = 8080
@@ -118,3 +119,10 @@ func (s *SdClient) GetNodes(name string) ([]*ServiceNode, error) {
 	return nodes, nil
 }
 
+type UnknowErr struct {
+	Detail string
+}
+
+func (i UnknowErr) Error() string {
+	return fmt.Sprintf("get unknow Err with detail:%s", i.Detail)
+}

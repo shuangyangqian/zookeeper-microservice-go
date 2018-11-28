@@ -87,6 +87,9 @@ func getIp() (string, error) {
 			}
 		}
 	}
-	err = new(error)
+
+	err = service_provider.UnknowErr{
+		Detail: "cannot get ip",
+	}
 	return "", err
 }
