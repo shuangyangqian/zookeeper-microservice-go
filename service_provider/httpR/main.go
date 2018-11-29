@@ -14,6 +14,7 @@ import (
 var serviceName string
 var servicePort int
 var zkHost string
+var timeout int
 
 func main() {
 
@@ -23,6 +24,8 @@ func main() {
 		"the port service listened on")
 	flag.StringVar(&zkHost, "zkHost", "127.0.0.1:2181;",
 		"the zk host list to registered")
+	flag.IntVar(&timeout, "timeout", 1,
+		"timeout to connect zk cluster")
 
 	flag.Parse()
 	// 获取本机IP地址
@@ -47,7 +50,7 @@ func main() {
 	for _, host := range zkHostSlice {
 		zkServers = append(zkServers, host)
 	}
-	client, err := service_provider.NewClient(zkServers, "/api", 10)
+	client, err := service_provider.NewClient(zkServers, "/api", timeout)
 	if err != nil {
 		panic(err)
 	}
